@@ -1,0 +1,10 @@
+name: PaintingSelector
+author: SkyeeYas
+main: me.SkyeeYas.PaintingSelector.Main
+version: 1.0
+api-version: 1.13
+commands:
+  paintingselector:
+    description: Your description
+    usage: /paintingselector
+  
