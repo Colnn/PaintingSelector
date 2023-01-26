@@ -20,7 +20,7 @@ public class InventoryUtil implements Listener {
 	
 	public InventoryUtil() {
         // Create a new inventory, with no owner (as this isn't a real inventory), a size of nine, called example
-        inv = Bukkit.createInventory(null, 36, "Example");
+        inv = Bukkit.createInventory(null, 45, "Example");
 
         // Put the items into the inventory
         initializeItems();
@@ -45,11 +45,11 @@ public class InventoryUtil implements Listener {
 		inv.setItem(24, createGuiItem(Material.PAINTING, "Void"));
 		inv.setItem(25, createGuiItem(Material.PAINTING, "Wither"));
 		inv.setItem(26, createGuiItem(Material.PAINTING, "Fighters"));
-		inv.setItem(27, createGuiItem(Material.PAINTING, "Donkey Kong"));
-		inv.setItem(28, createGuiItem(Material.PAINTING, "Skeleton"));
-		inv.setItem(29, createGuiItem(Material.PAINTING, "Burning Skull"));
-		inv.setItem(30, createGuiItem(Material.PAINTING, "Pigscene"));
-		inv.setItem(31, createGuiItem(Material.PAINTING, "Pointer"));
+		inv.setItem(29, createGuiItem(Material.PAINTING, "Donkey Kong"));
+		inv.setItem(30, createGuiItem(Material.PAINTING, "Skeleton"));
+		inv.setItem(31, createGuiItem(Material.PAINTING, "Burning Skull"));
+		inv.setItem(32, createGuiItem(Material.PAINTING, "Pigscene"));
+		inv.setItem(33, createGuiItem(Material.PAINTING, "Pointer"));
 	}
 	
 	protected static ItemStack createGuiItem(final Material material, final String name, final String... lore) {
