@@ -2,9 +2,14 @@ package me.SkyeeYas.PaintingSelector.Utils;
 
 import java.util.Arrays;
 
+import org.bukkit.Art;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Painting;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,36 +25,39 @@ public class InventoryUtil implements Listener {
 	
 	public InventoryUtil() {
         // Create a new inventory, with no owner (as this isn't a real inventory), a size of nine, called example
-        inv = Bukkit.createInventory(null, 45, "Example");
+        inv = Bukkit.createInventory(null, 45, "Painting Selector");
 
         // Put the items into the inventory
         initializeItems();
     }
 	
 	public static void initializeItems() {
-		inv.setItem(9, createGuiItem(Material.PAINTING, "Alban"));
-		inv.setItem(10, createGuiItem(Material.PAINTING, "Aztec"));
-		inv.setItem(11, createGuiItem(Material.PAINTING, "Aztec 2"));
-		inv.setItem(12, createGuiItem(Material.PAINTING, "Bomb"));
-		inv.setItem(13, createGuiItem(Material.PAINTING, "Kebab"));
-		inv.setItem(14, createGuiItem(Material.PAINTING, "Plant"));
-		inv.setItem(15, createGuiItem(Material.PAINTING, "Courbet"));
-		inv.setItem(16, createGuiItem(Material.PAINTING, "Pool"));
-		inv.setItem(17, createGuiItem(Material.PAINTING, "Creebet"));
-		inv.setItem(18, createGuiItem(Material.PAINTING, "Sunset"));
-		inv.setItem(19, createGuiItem(Material.PAINTING, "Graham"));
-		inv.setItem(20, createGuiItem(Material.PAINTING, "Bust"));
-		inv.setItem(21, createGuiItem(Material.PAINTING, "Match"));
-		inv.setItem(22, createGuiItem(Material.PAINTING, "Skull and Roses"));
-		inv.setItem(23, createGuiItem(Material.PAINTING, "Stage"));
-		inv.setItem(24, createGuiItem(Material.PAINTING, "Void"));
-		inv.setItem(25, createGuiItem(Material.PAINTING, "Wither"));
-		inv.setItem(26, createGuiItem(Material.PAINTING, "Fighters"));
-		inv.setItem(29, createGuiItem(Material.PAINTING, "Donkey Kong"));
-		inv.setItem(30, createGuiItem(Material.PAINTING, "Skeleton"));
-		inv.setItem(31, createGuiItem(Material.PAINTING, "Burning Skull"));
-		inv.setItem(32, createGuiItem(Material.PAINTING, "Pigscene"));
-		inv.setItem(33, createGuiItem(Material.PAINTING, "Pointer"));
+		inv.setItem(9, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Alban)", "alban"));
+		inv.setItem(10, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Aztec)", "aztec"));
+		inv.setItem(11, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Aztec 2)", "aztec2"));
+		inv.setItem(12, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Bomb)", "bomb"));
+		inv.setItem(13, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Kebab)", "kebab"));
+		inv.setItem(14, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Plant)", "plant"));
+		inv.setItem(15, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Wasteland)", "wasteland"));
+		inv.setItem(16, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Courbet)", "courbet"));
+		inv.setItem(17, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Pool)", "pool"));
+		inv.setItem(17, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Sea)", "sea"));
+		inv.setItem(18, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Creebet)", "creebet"));
+		inv.setItem(19, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Sunset)", "sunset"));
+		inv.setItem(20, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Graham)", "graham"));
+		inv.setItem(21, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Wanderer)", "wanderer"));
+		inv.setItem(22, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Bust)", "bust"));
+		inv.setItem(23, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Match)", "match"));
+		inv.setItem(24, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Skull and Roses)", "skull_and_roses"));
+		inv.setItem(25, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Stage)", "stage"));
+		inv.setItem(26, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Void)", "void"));
+		inv.setItem(28, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Wither)", "wither"));
+		inv.setItem(29, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Fighter)", "fighter"));
+		inv.setItem(30, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Donkey Kong)", "donkey_kong"));
+		inv.setItem(31, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Skeleton)", "skeleton"));
+		inv.setItem(32, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Burning Skull)", "burning_skull"));
+		inv.setItem(33, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Pigscene)", "pigscene"));
+		inv.setItem(34, createGuiItem(Material.PAINTING, ChatColor.DARK_PURPLE + "Painting " + ChatColor.GRAY + "(Pointer)", "pointer"));
 	}
 	
 	protected static ItemStack createGuiItem(final Material material, final String name, final String... lore) {
@@ -76,17 +84,16 @@ public class InventoryUtil implements Listener {
     @EventHandler
     public void onInventoryClick(final InventoryClickEvent e) {
         if (!e.getInventory().equals(inv)) return;
-        
-        e.setCancelled(true);
 
         final ItemStack clickedItem = e.getCurrentItem();
 
-        // verify current item is not null
-        if (clickedItem == null || clickedItem.getType().isAir()) return;
+        // Check if clicked item is a painting
+        if (clickedItem.getType() != Material.PAINTING) return;
 
         final Player p = (Player) e.getWhoClicked();
 
-        
+    	p.getItemInHand().setItemMeta(clickedItem.getItemMeta());
+    	e.setCancelled(true);
         
     }
 
