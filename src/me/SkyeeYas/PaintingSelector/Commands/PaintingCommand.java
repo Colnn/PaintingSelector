@@ -1,5 +1,6 @@
 package me.SkyeeYas.PaintingSelector.Commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,10 +13,7 @@ public class PaintingCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		if(sender instanceof Player) {
-			Player player = (Player) sender;
-			InventoryUtil.openInventory(player);
-		}
+		sender.sendMessage(ChatColor.DARK_PURPLE + "[PaintingSelector]" + ChatColor.WHITE + " Plugin is working!");
 		
 		return true;
 	}
